@@ -14,14 +14,29 @@
 	Map<String, Object>mapA = new HashMap<String, Object>();
 	mapA.put("username", "ユーザー名 A");
 	mapA.put("age", 16);
+	mapA.put("birthday", "10/30");
+	
+	Map<String, Object>mapB = new HashMap<String, Object>();
+	mapB.put("username", "ユーザー名 B");
+	mapB.put("age", "24");
+	mapB.put("birthday", "6/8");
+	
+	Map<String, Object>mapC = new HashMap<String, Object>();
+	mapC.put("username", "ユーザー名 C");
+	mapB.put("age", "29");
+	mapB.put("birthday", "12/12");
+	
+	list.add(mapA);
+	list.add(mapB);
+	list.add(mapC);
+	
+	request.setAttribute("list", list);
 %>
 
 <%-- c:foreachはjava.utilに含まれるコレクションや配列の内容を取り出して、その中身をvarに指定した変数へ格納する --%>
-<c:forEach items="${list}" var="obj" varStatus="status">
-<%-- varStatusは繰り返し情報を格納するインスタンスを指定する。indexにループが格納されている。 --%>
-<c:out value="${status.index}" />
-<c:out value="${obj}"></c:out>
-<br />
-</c:forEach>
+<table border="1">
+<c:forEach></c:forEach>
+</table>
+
 </body>
 </html>
