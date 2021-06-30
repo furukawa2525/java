@@ -10,7 +10,7 @@
 </head>
 <body>
 <%
-	List<Map<String, Object>>list = new ArreyList<Map<String, Object>>();
+	List<Map<String, Object>>list = new ArrayList<Map<String, Object>>();
 	Map<String, Object>mapA = new HashMap<String, Object>();
 	mapA.put("username", "ユーザー名 A");
 	mapA.put("age", 16);
@@ -23,8 +23,8 @@
 	
 	Map<String, Object>mapC = new HashMap<String, Object>();
 	mapC.put("username", "ユーザー名 C");
-	mapB.put("age", "29");
-	mapB.put("birthday", "12/12");
+	mapC.put("age", "29");
+	mapC.put("birthday", "12/12");
 	
 	list.add(mapA);
 	list.add(mapB);
@@ -35,8 +35,13 @@
 
 <%-- c:foreachはjava.utilに含まれるコレクションや配列の内容を取り出して、その中身をvarに指定した変数へ格納する --%>
 <table border="1">
-<c:forEach></c:forEach>
+<c:forEach items="${list}" var="map" varStatus="status">
+	<tr>
+		<td><c:out value="${map['username']}" /></td>
+		<td><c:out value="${map['age']}" /></td>
+		<td><c:out value="${map['birthday']}" /></td>
+	</tr>
+</c:forEach>
 </table>
-
 </body>
 </html>
